@@ -34596,7 +34596,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".language {\n    padding: 14px;\n    margin: 6px;\n    background-color: #13AA72;\n    border-radius: 10px;\n    border: 2px solid #FFF;\n    color: white;\n    min-height: 104px;\n}\n\n.language hr {\n    margin: 4px 0;\n}\n\n.language:hover {\n    -webkit-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    -moz-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    cursor: pointer;\n}\n\n.name {\n    display: inline-block;\n    font-size: 16px;\n    font-weight: bolder;\n}\n\n.year {\n    float: right;\n    font-size: 42px;\n    margin: -8px;\n}", ""]);
+	exports.push([module.id, ".language {\n    padding: 14px;\n    margin: 6px;\n    background-color: #13AA72;\n    border-radius: 10px;\n    border: 2px solid #FFF;\n    color: white;\n    min-height: 124px;\n}\n\n.language hr {\n    margin: 4px 0;\n}\n\n.language:hover {\n    -webkit-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    -moz-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);\n    cursor: pointer;\n}\n\n.name {\n    display: inline-block;\n    font-size: 16px;\n    font-weight: bolder;\n}\n\n.year {\n    float: right;\n    font-size: 42px;\n    margin: -8px;\n}\n\n.developer-company {\n    width:80%;\n}", ""]);
 	
 	// exports
 
@@ -34753,7 +34753,11 @@
 	                        data.year
 	                    ),
 	                    _react2.default.createElement("hr", null),
-	                    data.developer_company
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "developer-company" },
+	                        data.developer_company
+	                    )
 	                )
 	            );
 	        }
@@ -34786,7 +34790,7 @@
 	        { style: { marginTop: '14px' } },
 	        _react2.default.createElement('input', {
 	            type: 'text',
-	            placeholder: 'Search for a programming language...',
+	            placeholder: 'Search for a programming language (from the 90\'s until today)...',
 	            onChange: function onChange(e) {
 	                return props.handleChange(e.target.value);
 	            },

@@ -16,7 +16,9 @@ export default class Language extends React.Component {
                             {data.year}
                         </div>
                         <hr />
-                        {data.developer_company}
+                        <div className="developer-company">
+                            {data.developer_company}
+                        </div>
                     </div>
                 </div>);
     }
