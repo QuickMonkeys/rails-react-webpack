@@ -1,13 +1,4 @@
 default: &default
-      adapter: postgresql
-      encoding: unicode
-      pool: 5
-
-development:
-  <<: *default
-  database: react_development
-
-production:
-      adapter: postgresql
-      encoding: unicode
-      pool: 5
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
