@@ -34655,7 +34655,7 @@
 	    }, {
 	        key: 'findByName',
 	        value: function findByName(f, text) {
-	            return f.name.toUpperCase().indexOf(text) != -1;
+	            return f.name.toUpperCase().indexOf(text) != -1 || f.developer_company.toUpperCase().indexOf(text) != -1 || f.year.toString().indexOf(text) != -1;
 	        }
 	    }, {
 	        key: 'handleChange',

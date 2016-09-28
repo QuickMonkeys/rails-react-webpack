@@ -15,7 +15,9 @@ export default class Languages extends React.Component {
     }
     
     findByName(f, text) {
-        return f.name.toUpperCase().indexOf(text) != -1;
+        return f.name.toUpperCase().indexOf(text) != -1 || 
+               f.developer_company.toUpperCase().indexOf(text) != -1 ||
+               f.year.toString().indexOf(text) != -1;
     }
     
     handleChange(text) {
