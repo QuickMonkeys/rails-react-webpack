@@ -1,0 +1,32 @@
+.language {
+    padding: 14px;
+    margin: 6px;
+    background-color: #13AA72;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    color: white;
+    min-height: 104px;
+}
+
+.language hr {
+    margin: 4px 0;
+}
+
+.language:hover {
+    -webkit-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);
+    -moz-box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);
+    box-shadow: 7px 7px 22px 0px rgba(128,124,128,1);
+    cursor: pointer;
+}
+
+.name {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.year {
+    float: right;
+    font-size: 42px;
+    margin: -8px;
+}
