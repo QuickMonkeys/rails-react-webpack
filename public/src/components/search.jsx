@@ -4,7 +4,7 @@ const Search = (props) =>
         <div style={{marginTop: '14px'}}>
             <input 
                 type="text" 
-                placeholder="Search for a programming language..."
+                placeholder="Search for a programming language (from the 90's until today)..."
                 onChange={(e) => props.handleChange(e.target.value)}
                 className="form-control"
             />
