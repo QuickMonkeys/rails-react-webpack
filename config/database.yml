@@ -4,8 +4,12 @@ default: &default
       pool: 5
       username: react
       password: react
-      host:     <%= ENV['IP'] %>
 
 development:
   <<: *default
   database: react_development
+
+production:
+      adapter: postgresql
+      encoding: unicode
+      pool: 5
