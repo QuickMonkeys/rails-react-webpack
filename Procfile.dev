@@ -1,3 +1,3 @@
 
 web: rails s -p $PORT -b $IP
-webpack: webpack  --progress --color --display-error-details --watch
+pack: webpack  --progress --color --display-error-details --watch

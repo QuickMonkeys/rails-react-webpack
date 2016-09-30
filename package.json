@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "devbuild": "webpack --progress --color --display-error-details"
+    "devbuild": "webpack --progress --color --display-error-details",
+    "devstart": "rails s -p $PORT -b $IP"
   },
   "author": "Carlos Eduardo",
   "license": "ISC",

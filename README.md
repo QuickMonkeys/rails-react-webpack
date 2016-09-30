@@ -6,6 +6,15 @@ The rails project is an API application that will be used to serve the data in a
 The view was made in react, using babel to transpile and webpack to bundle / manager the modules.
 The database used is Postgres.
 
+The transpiler used to generate javascript is Babel.
+
+Webpack is used to create the javascript bundle of the project (see webpack.config.js).
+
+Foreman is used to start two services: 
+```
+    - Web, that's responsible to run Sinatra.
+    - Pack, that's responsible for watch changes and recompile code .
+```
 
 To get the code:
 

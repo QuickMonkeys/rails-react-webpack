@@ -6,6 +6,9 @@ default: &default
 development:
   <<: *default
   database: react_development
+  username: react
+  password: react
+  host:     <%= ENV['IP'] %>
 
 production:
       adapter: postgresql
