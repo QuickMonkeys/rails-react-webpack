@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Search = (props) =>
+export default (props) =>
         <div style={{marginTop: '14px'}}>
             <input 
                 type="text" 
@@ -13,12 +13,10 @@ const Search = (props) =>
                     {
                         props.total == 0 
                             ? 'Loading...' 
-                            : `Total: ${props.filtered.length} of ${props.total}`
-                        
+                            : `Total: ${props.filtered} of ${props.total}`
                     }
                 </span>
             </div>
             <hr />
         </div>
         
-export default Search;

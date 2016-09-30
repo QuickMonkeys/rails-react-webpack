@@ -34641,7 +34641,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, (Languages.__proto__ || Object.getPrototypeOf(Languages)).call(this));
 	
-	        _this.state = { courses: [], search: '' };
+	        _this.state = { languages: [], search: '' };
 	        return _this;
 	    }
 	
@@ -34649,7 +34649,7 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            $.getJSON("languages", function (data) {
-	                this.setState({ courses: data, filtered: data });
+	                this.setState({ languages: data, filtered: data });
 	            }.bind(this));
 	        }
 	    }, {
@@ -34663,28 +34663,43 @@
 	            this.setState({ search: text.toUpperCase() });
 	        }
 	    }, {
-	        key: 'render',
-	        value: function render() {
+	        key: 'setupRender',
+	        value: function setupRender() {
 	            var _this2 = this;
 	
 	            var _state = this.state;
-	            var courses = _state.courses;
+	            var languages = _state.languages;
 	            var search = _state.search;
 	
-	            var filtered = courses.filter(function (f) {
+	            var filtered = languages.filter(function (f) {
 	                return _this2.findByName(f, search);
-	            });
-	            var result = filtered.map(function (c) {
+	            }).map(function (c) {
 	                return _react2.default.createElement(_language2.default, { key: c.id, data: c });
 	            });
+	
+	            return {
+	                result: filtered,
+	                searchProps: {
+	                    handleChange: this.handleChange.bind(this),
+	                    total: languages.length,
+	                    filtered: filtered.length
+	                }
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	
+	            var r = this.setupRender();
+	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_search2.default, { handleChange: this.handleChange.bind(this), total: courses.length, filtered: filtered }),
+	                _react2.default.createElement(_search2.default, r.searchProps),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
-	                    result
+	                    r.result
 	                )
 	            );
 	        }
@@ -34706,67 +34721,41 @@
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(70);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Language = function (_React$Component) {
-	    _inherits(Language, _React$Component);
-	
-	    function Language() {
-	        _classCallCheck(this, Language);
-	
-	        return _possibleConstructorReturn(this, (Language.__proto__ || Object.getPrototypeOf(Language)).call(this));
-	    }
-	
-	    _createClass(Language, [{
-	        key: "render",
-	        value: function render() {
-	            var data = this.props.data;
-	
-	            return _react2.default.createElement(
+	exports.default = function (_ref) {
+	    var data = _ref.data;
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "col-md-6" },
+	        _react2.default.createElement(
+	            "div",
+	            { className: "language", onClick: function onClick() {
+	                    return alert('Some action...');
+	                } },
+	            _react2.default.createElement(
 	                "div",
-	                { className: "col-md-6" },
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "language", onClick: function onClick() {
-	                            return alert('Some action...');
-	                        } },
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "name" },
-	                        data.name
-	                    ),
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "year" },
-	                        data.year
-	                    ),
-	                    _react2.default.createElement("hr", null),
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "developer-company" },
-	                        data.developer_company
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return Language;
-	}(_react2.default.Component);
-	
-	exports.default = Language;
+	                { className: "name" },
+	                data.name
+	            ),
+	            _react2.default.createElement(
+	                "div",
+	                { className: "year" },
+	                data.year
+	            ),
+	            _react2.default.createElement("hr", null),
+	            _react2.default.createElement(
+	                "div",
+	                { className: "developer-company" },
+	                data.developer_company
+	            )
+	        )
+	    );
+	};
 
 /***/ },
 /* 269 */
@@ -34784,7 +34773,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Search = function Search(props) {
+	exports.default = function (props) {
 	    return _react2.default.createElement(
 	        'div',
 	        { style: { marginTop: '14px' } },
@@ -34802,14 +34791,12 @@
 	            _react2.default.createElement(
 	                'span',
 	                null,
-	                props.total == 0 ? 'Loading...' : 'Total: ' + props.filtered.length + ' of ' + props.total
+	                props.total == 0 ? 'Loading...' : 'Total: ' + props.filtered + ' of ' + props.total
 	            )
 	        ),
 	        _react2.default.createElement('hr', null)
 	    );
 	};
-	
-	exports.default = Search;
 
 /***/ }
 /******/ ]);

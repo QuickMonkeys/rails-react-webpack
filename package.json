@@ -8,7 +8,7 @@
   },
   "scripts": {
     "devbuild": "webpack --progress --color --display-error-details",
-    "devstart": "rails s -p $PORT -b $IP"
+    "devstart": "nf start -j Procfile.dev"
   },
   "author": "Carlos Eduardo",
   "license": "ISC",

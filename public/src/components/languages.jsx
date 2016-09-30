@@ -1,16 +1,16 @@
 import React from 'react';
-import Course from './language.jsx';
+import Language from './language.jsx';
 import Search from './search.jsx';
 
 export default class Languages extends React.Component {
     constructor() {
         super();
-        this.state = {courses: [], search: ''}
+        this.state = {languages: [], search: ''}
     }
     
     componentDidMount() {
         $.getJSON( "languages", function( data ) {
-            this.setState({courses: data, filtered: data});
+            this.setState({languages: data, filtered: data});
         }.bind(this));
     }
     
@@ -23,16 +23,30 @@ export default class Languages extends React.Component {
     handleChange(text) {
         this.setState({search: text.toUpperCase()});
     }
+    
+    setupRender() {
+        let {languages, search} = this.state;
+        const filtered = languages.filter(f => this.findByName(f, search)).map( c => <Language key={c.id} data={c} />);
+        
+        return {
+            result: filtered,
+            searchProps: {
+                handleChange: this.handleChange.bind(this),
+                total: languages.length,
+                filtered: filtered.length
+            }
+        }
+    }
      
     render() {
-        let {courses, search} = this.state;
-        const filtered = courses.filter(f => this.findByName(f, search));
-        const result = filtered.map( c => <Course key={c.id} data={c} />);
+
+        let r = this.setupRender();
+        
         return (
                 <div>
-                    <Search handleChange={this.handleChange.bind(this)} total={courses.length} filtered={filtered} />
+                    <Search  {...r.searchProps}/>
                     <div className="row">
-                        {result}
+                        {r.result}
                     </div>
                 </div>
         );
