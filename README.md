@@ -12,7 +12,7 @@ Webpack is used to create the javascript bundle of the project (see webpack.conf
 
 Foreman is used to start two services: 
 ```
-    - Web, that's responsible to run Sinatra.
+    - Web, that's responsible to run Rails.
     - Pack, that's responsible for watch changes and recompile code .
 ```
 
