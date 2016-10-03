@@ -18,9 +18,9 @@ Foreman is used to start two services:
 
 To get the code:
 
-`git clone https://github.com/QuickMonkeys/react-webpack-quick.git`
+`git clone https://github.com/QuickMonkeys/rails-react-webpack.git`
 
-`cd react-webpack-quick`
+`cd rails-react-webpack`
 
 run `npm i` to install node_modules
 
