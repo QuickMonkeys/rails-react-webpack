@@ -1,5 +1,7 @@
 import React from 'react';
 
+// The search component is created as a stateless component.
+// In this example we only need to update the parent state
 export default (props) =>
         <div style={{marginTop: '14px'}}>
             <input 
