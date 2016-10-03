@@ -24,6 +24,6 @@ To get the code:
 
 run `npm i` to install node_modules
 
-run `nf start -j Procfile.dev` to start the application using Foreman.
+run `npm run devstart` to start the application using Foreman.
 
 You can see a live [Demo](https://rails-react-webpack-quick.herokuapp.com/) here.
